@@ -1,0 +1,54 @@
+{%  extends 'base.html' %}
+
+<!--{% block scripts %}-->
+<!--    {{ super() }}-->
+<!--    {{ moment.include_moment() }}-->
+<!--{% endblock %}-->
+
+{% block content %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('static/assets/img/caralog10.jpg')">
+        <div class="container overlay">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Small Business</h1>
+                        <hr class="small">
+                        <span class="subheading">A Small Business Responsive Theme<br>by <a href="http://forbetterweb.com">ForBetterWeb</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+
+
+    <div class="container-fluid container-90">
+        <div class="row">
+
+            {% for post in posts %}
+            <div class="col-md-3">
+                <div class="post-preview">
+                    <a href="page.html">
+                        {{ super() }}
+                        {{ moment.include_moment() }}
+                        <p class="post-meta">{{ moment(post.date_posted).format('LL') }}</p>
+                        <img class="img-responsive" src="static/assets/img/{{post.image_file}}">
+                        <h2 class="post-title">
+                            <a href="{{ url_for('page') }}">{{post.title}}</a>
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{ post.description}}
+                        </h3>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
+    <hr>
+
+{% endblock %}

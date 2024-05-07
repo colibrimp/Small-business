@@ -3,7 +3,7 @@
 {% block content %}
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('static/assets/img/caralog8.jpg')">
+    <header class="intro-header" style="background-image: url( {{url_for('static', filename='img/caralog8.jpg') }} )">
         <div class="container overlay">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -22,30 +22,18 @@
         <div class="container">
             <div class="row">
 
-
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-                    <h2 class="section-heading"></h2>
+                    <h2 class="section-heading">{{ post.title}}</h2>
 
-                    <p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+                    <p>{{ post.description }}</p>
 
-                    <blockquote>Proactively envisioned multimedia based expertise and cross-media growth strategies.</blockquote>
-
-                    <p>Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable potentialities.</p>
-
-                    <h2 class="section-heading">Credibly innovate</h2>
-
-                    <p>Credibly innovate granular internal or "organic" sources whereas high standards in web-readiness. Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with optimal networks.</p>
+                    <blockquote>{{ post.quote_text }}</blockquote>
 
                     <a href="#">
-                        <img class="img-responsive" src="img/caralog9.jpg" alt="">
+                        <img class="img-responsive" src="/static/img/{{post.image_file}}">
                     </a>
-                    <span class="caption text-muted">Phosfluorescently engage worldwide methodologies with web-enabled technology</span>
-
-                    <p>Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.</p>
-
-
-                 
+                    <p>{{ post.full_description }}</p>
                 </div>
             </div>
         </div>
